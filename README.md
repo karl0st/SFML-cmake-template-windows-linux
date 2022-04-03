@@ -22,5 +22,6 @@ Follow instructions [here](https://vcpkg.io/en/getting-started.html) and then:
 #### If you are using VScode on windows
 
 1. Create `.vscode` folder in your project directory
-2. Add `{"cmake.generator": "Visual Studio 17 2022",}`
+2. In this folder create `settings.json`
+    - Add `{"cmake.generator": "Visual Studio 17 2022",}`
     - Use `cmake -h` if you dont have VS or you have different version
