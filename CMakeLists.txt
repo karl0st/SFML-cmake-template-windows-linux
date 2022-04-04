@@ -5,8 +5,6 @@ IF(WIN32)
     set(VCPKG_TARGET_TRIPLET "x64-windows" CACHE STRING "" FORCE)
 ENDIF()
 
-set(CMAKE_CONFIGURATION_TYPES "Release" CACHE STRING "" FORCE)
-
 project(sfml-template-windows-linux
         LANGUAGES CXX
 )
@@ -14,8 +12,9 @@ project(sfml-template-windows-linux
 IF(MSVC)
     set(CMAKE_CXX_STANDARD 17)
     set(CMAKE_CXX_STANDARD_REQUIRED True)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17 /W4 /O2" CACHE STRING "" FORCE)
 ELSE()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall" CACHE STRING "" FORCE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wpedantic -O3" CACHE STRING "" FORCE)
 ENDIF()
 
 IF(WIN32)
@@ -32,7 +31,7 @@ ELSE()
 ENDIF()
 
 file(GLOB SRC
-    ./src/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 
 IF(UNIX)
