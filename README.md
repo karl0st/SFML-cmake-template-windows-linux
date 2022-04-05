@@ -1,4 +1,4 @@
-# SFML cmake template for windows or linux
+# SFML cmake template for windows and linux
 
 ### Arch linux
 
